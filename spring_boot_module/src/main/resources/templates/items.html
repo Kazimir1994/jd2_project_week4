@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+    <div th:replace="fragments/header :: header-css"></div>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="container">
+    <div th:if="${#lists.isEmpty(items)}"><h1>No products</h1></div>
+    <div th:if="${not #lists.isEmpty(items)}">
+        <div class="card">
+            <div class="card-block">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item :${items}">
+                        <td class="font-weight-bold" th:text="${item.id}"></td>
+                        <td th:text="${item.name}"></td>
+                        <td th:text="${item.status}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
