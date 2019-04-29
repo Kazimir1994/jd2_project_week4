@@ -1,4 +1,4 @@
-package ru.kazimir.bortnik;
+package ru.kazimir.bortnik.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <div th:replace="fragments/header :: header-css"></div>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="container">
+    <div th:if="${#lists.isEmpty(users)}"><h1>No users</h1></div>
+    <div th:if="${not #lists.isEmpty(users)}">
+        <div class="card">
+            <div class="card-block">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="font-weight-bold">Name</th>
+                        <th>Role</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user :${users}">
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.role.roleEnum.name()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
